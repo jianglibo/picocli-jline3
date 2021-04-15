@@ -1,1 +1,39 @@
+spring:
+  main:
+    banner-mode: off
+  rabbitmq:
+    addresses: ${RABBITMQ_ADDRESS:amqp://guest:guest@localhost:5672}
+  profiles:
+    active:
+      - production
+logging:
+  file:
+    path: logs
+  pattern:
+    console:
+  level:
+    root: ERROR
 
+jasypt:
+  encryptor:
+    password: ${JASYPT_PASSWORD:x}
+    algorithm: PBEWITHHMACSHA512ANDAES_256
+    key-obtention-iterations: 1000
+    pool-size: 1
+    provider-name: SunJCE
+    salt-generator-classname: org.jasypt.salt.RandomSaltGenerator
+    iv-generator-classname: org.jasypt.iv.RandomIvGenerator
+    string-output-type: base64
+
+app:
+  hasura_secret: ${HASURA_SECRET:123456}
+  hasura_end_point: ${HASURA_ENDPOINT:http://localhost:8080/v1/graphql}
+  blob_prefix: ${BLOB_PREFIX:c}
+  downloads_dir: ${SPRING_BOOT_DOWNLOAD_DIR:downloads}
+  azure_storage_connection_string: ${AZURE_STORAGE_CONNECTION_STRING:dstarted}
+  vultr_key: ENC(vq6BstAR62qsUfprF6hBgUakqowyxGw7k+EfaTPHijcrT2V9UiPsJr73Wkl1vYMnT6ZBBFLvCLMOaL6TDw6zeGQwgYEqJmKDzf/PH1IYE+g=)
+  scaleway_project_id: ENC(BaLQ0+X3o8Bb4naqLMy81StE+Lvm3+a83m4C2e3hDvfsXIhwHdOaw0xaQUuCeYLF6RaE4AauVG0DfkRRZD0I5HrgGgxs9nGfdAkvKMd/Q9M=)
+  scaleway_organization_id: ENC(gu3f4AIf8GmHJ6nQLaT5eTydxM1Hsqfr/U6unvDTEHs7ZgItPbxu0RB5vTGnFOF2QcDaDQywiR58y3E/qlxzygFhTF8A9P+W2udMzX/Ere0=)
+  scaleway_access_key: ENC(RHq/u1qvBHeqAg2Vx7njAE/7NsRvnRorb5GuXtCap2QHyZzMV5F73/RnA6i/z49sXXDm1IraJUa954QO7q7O2g==)
+  scaleway_secret_key: ENC(mxmaE6/7cJNbGPul4iTweQ0ezVcLPnxNreso9yx6H9cnfxo40YbNUm0bwdkv9Xw841zE1rGO74++Q7rogiAwOrDw7slxxLtdWZUfhFox8T8=)
+  hetzner_token: ENC(xgV5u+6/L6mOYCObb5IemKxOTV2r1WfFyh8CgDqkgXK6OoougdXAgAYML8IB2NaT1qUUX8utqWGqy0vk8cE3KqEAO6uEdkMdobjmSTULBVFEGLYbp1QvbD/VoSWtq+t0TsLphFHfSGUrM/fuT7JEJA==)

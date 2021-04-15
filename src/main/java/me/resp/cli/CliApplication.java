@@ -39,8 +39,8 @@ public class CliApplication implements CommandLineRunner, ExitCodeGenerator {
   private int exitCode;
 
   CliApplication(CliCommands mailCommand, IFactory factory) {
-      this.mailCommand = mailCommand;
-      this.factory = factory;
+    this.mailCommand = mailCommand;
+    this.factory = factory;
   }
 
   @Override
@@ -120,6 +120,13 @@ public class CliApplication implements CommandLineRunner, ExitCodeGenerator {
   }
 
   public static void main(String[] args) throws Exception {
+
+    // System.exit(
+    //     SpringApplication.exit(
+    //         new SpringApplicationBuilder(CliApplication.class)
+    //             .web(WebApplicationType.NONE) // .REACTIVE, .SERVLET
+    //             .run(args)));
+
     System.exit(SpringApplication.exit(SpringApplication.run(CliApplication.class, args)));
 
     // ConfigurableApplicationContext ctx = SpringApplication.run(CliApplication.class, args);
